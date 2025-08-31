@@ -23,12 +23,18 @@ with st.form(key='titanic_form'):
     age = st.number_input("Age", min_value=0, max_value=100, value=25)
     sibsp = st.number_input("Number of Siblings/Spouses Aboard", min_value=0, value=0)
     parch = st.number_input("Number of Parents/Children Aboard", min_value=0, value=0)
-    fare = st.number_input("Fare Paid", min_value=0.0, value=7.25)
+    fare = st.number_input("Fare Paid in £ (check notes)", min_value=0.0, value=7.25)
+# Display typical ticket prices for context
     sex = st.selectbox("Sex", ["male", "female"])
     embarked = st.selectbox("Port of Embarkation", ["C", "Q", "S"])
-
     submit_button = st.form_submit_button(label='Predict Survival')
 
+    st.markdown("""
+    **Typical Titanic Ticket Prices by Class:**
+    - **First Class:** Approx. £30 to £870 (roughly $150–$4,350)
+    - **Second Class:** Approx. £12 to £60 ($60–$300)
+    - **Third Class (Steerage):** Approx. £3 to £8 ($15–$40)
+    """)
 # -------------------------
 # Prepare data and predict
 # -------------------------
